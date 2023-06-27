@@ -5,24 +5,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porto Redux</title>
+    <title>Jefferey</title>
+    <!-- styling -->
     <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/b163088d6c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" 
+    href="https://fonts.googleapis.com">
+    <link rel="preconnect" 
+    href="https://fonts.gstatic.com" 
+    crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins:wght@100;200;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+     rel="stylesheet">
+
+    <!-- Animate.css plugin -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
 </head>
 <body>
-    <div class="hero">
-      <nav>
-        <h2 class="logo">Wel<span>come</span></h2>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://www.instagram.com/tarzy20s/">Instagram</a></li>
-        </ul>
-      </nav>
+      <section class="container">
+          <h3>JEFFEREY SOLING</h3>
+        <div class="stack" style="--stacks: 3;">
+          <span style="--index: 0;">Front End</span>
+          <span style="--index: 1;">Front End</span>
+          <span style="--index: 2;">Front End</span>
+        </div>
+        <span class="right">Developer</span>
+      </section>
+      <section class="about">
+        <div class="about-header">
+          <img src="./images/jeff-bgr.png" alt="">
+          <h1>Hello, I'm Jefferey James Soling</h1>
+          <br>
+          <div class="about-me">
+            <h3>I am detailed orientated designer, strongly passionate about front end development.</h3>
+            <p>I am graduate in Front end development, via the learning people - <span>skillsoft</span>
+            specializing in the visual front end side of web development. I have experience
+            developing and building simple and minimalist to more elaborate projects.</p>
+            <p>I love to learn to adapt to new settings to create better user experiences, while adhering to 
+              best practises, effienct and scalable. My primary goal is to build experience and progress into
+              a full stack developer with an emphasis on UI designs for websites or applications that are both simple and practical.
+            </p>
+            <p>Outside of work I enjoy: Gym, ai generative art, seeking new ai tools, the outdoors, hip hop dance and the walking my dog.</p>
+          </div>
+        </div>
+        
+      </section>
+      <div class="skills">
+        <div class="skill-tree">
+          <div class="tree">
+            <h3>Development</h3>
+            <ul>
+              <li><i class="fa-brands fa-css3-alt"></i>CSS3</li>
+              <li><i class="fa-brands fa-js"></i>JavaScript</li>
+              <li><i class="fa-brands fa-react"></i>React.js</li>
+              <li><i class="fa-brands fa-html5"></i>HTML5</li>
+            </ul>
+          </div>
+        </div>
+        <div class="skill-tree">
+          <div class="tree">
+            <h3>Design and Edit</h3>
+            <ul>
+              <li>Photoshop</li>
+              <li>Lightroom</li>
+              <li>Illustrator</li>
+              <li>Midjourney</li>
+            </ul>
+          </div>
+        </div>
+           <div class="skill-tree"> 
+            <div class="tree">
+              <h3>Tools</h3>
+              <ul>
+                <li>Visual Studio Code</li>
+                <li>Command Line</li>
+                <li>Github</li>
+                <li>Netlify</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="project-1">
+        <h1> Favourite project</h1>
+        <div id="score"></div>
+        <div class="tetriswrap">
+        <canvas id="tetris" width="240" height="400"></canvas>
+           <div class="instructions">
+            <h4>instructions</h4>
+            <span class="material-symbols-outlined">chevron_left
+                <span>left arrow</span>
+            </span>
+            <span class="material-symbols-outlined">chevron_right
+                <span> right arrow</span>
+            </span>
+            <span class="material-symbols-outlined">keyboard_arrow_down
+                <span> down arrow</span>
+            </span>
+            <span class="material-symbols-outlined">cached
+                <span>"Q" button rotate</span>
+            </span>
+        </div>
+      </div>
     </div>
-    <div class="glitch-wrapper">
-      <div class="glitch" data-glitch="HELLO, I AM JEFFEREY SOLING">HELLO, I AM JEFFEREY SOLING</div>
-   </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
