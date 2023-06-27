@@ -1,317 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
-
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Julee' sans-serif;
-  background-color: black;
-}
-
-/* header */
-
-.hero {
-  height: 100vh;
-  width: 100%;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 40px;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.logo {
-  color: white;
-  font-size: 32px;
-}
-
-span {
-  color: aqua;
-}
-
-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 10px 12px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-nav ul li a:hover {
-  color:#d80c0c;
-  transition: 0.3s ease-in;
-  font-size: 20px;
-}
-
-
-/* glitch effect */
-
-  .glitch-wrapper {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+  }
+  
+  :root {
+    --background: #060608;
+    --color: #c7f1ff;
+  }
+  
+  body {
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    background-color: #222;
-    bottom: 30vh;
- }
- 
- .glitch {
+    align-items: center;
+    background: var(--background);
+    font-family: 'Ubuntu', sans-serif;
+    outline: #c7f1ff;
+  }
+  
+  /* glitch animation */ 
+  
+  .container {
+    color: var(--color);
+    font-size: 3.25rem;
+    display: flex;
     position: relative;
-    font-size: 80px;
+    width: 100vw;
+    margin-top: 10%;
+    text-align: center;
+    flex-direction: column;
+    background-image: url("./images/snake-vector.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size:55%; 
+    overflow: hidden;
+  }
+
+  .right {
+    text-align: right;
+    max-width: 70%;
+  }
+  
+  .stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-family:'Ubuntu', sans-serif;
+  }
+  
+  .stack span {
     font-weight: 800;
-    line-height: 1.2;
-    color: #fff;
-    letter-spacing: 6px;
-    animation: shift 4s ease-in-out infinite alternate;
-    z-index: 1;
-    left: 1.5rem;
-    bottom: 50vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
- }
- 
- .glitch:before {
-    content: attr(data-glitch);
-    position: absolute;
-    top: 0;
-    left: -2px;
-    text-shadow: -1px 0 #0062ff;
-    width: 100%;
-    color: #fff;
-    background-color: #222;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 140ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 50ms), glitch 2s ease infinite 2s alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+
+  /* about section styling */
+
+  .about {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    margin-top: 30%;
+  }
+  
+  .about-header {
+    width: 95vw;
+    float: left;
+    color:var(--color);
+    margin-left: 30px;
+  }
+
+  .about-header h1{
+    text-decoration: underline #39a7f6;
+    font-size: 32px;
+    color: var(--color);
+  }
+
+  .about-header p{
+    margin: 5px;
+  }
+
+  .about-header img{
+    float: right;
+    margin-left: 15%;
+    border-radius: 500%;
+    width: 380px;
+    height: 320px;
+  }
+
+  .about-header img:hover {
+    transform:scale(1.5) ease 0.3s;
+  }
+
+  .skills {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: var(--color);
+    margin: 15%;
     overflow: hidden;
-    clip: rect(0, 900px, 0, 0);
-    animation: noise-before 3s infinite linear alternate-reverse;
- }
- 
- .glitch:after {
-    content: attr(data-glitch);
-    position: absolute;
-    top: 0;
-    left: 2px;
-    text-shadow: 1px 0 #ff00ff;
-    width: 100%;
-    color: #fff;
-    background-color: #222;
-    overflow: hidden;
-    clip: rect(0, 900px, 0, 0);
-    animation: noise-after 2s infinite linear alternate-reverse;
- }
- 
- @keyframes noise-before {
+    }
+
+    .tree h3 {
+      text-align:left;
+      font-weight: 600;
+      font-size: 24px;
+      padding-left: 22px;
+      text-decoration: double;
+    }
+
+    .skill-tree ul li {
+      list-style-type: none;
+      align-items: center;
+      text-align: left;
+      width: 20vw;
+      margin: 10%;
+      text-decoration: none;
+    }
+
+    /* Project-1 */ 
+
+    .project-1 {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      width: 100vw;
+      padding-left: 500px;
+      overflow: hidden;
+    }
+
+    .project-1 h1, #score {
+      color: var(--color);
+      margin-left: 15px;
+    }
+
+    .tetriswrap {
+      position: relative;
+      overflow: hidden;
+      margin: 20px;
+    }
+
+    canvas {
+      border: solid 0.2em #d2bbbb;
+      max-height: 90vh;
+      margin-bottom: 20px;
+    }
+  
+    .instructions {
+      flex-direction: column;
+      justify-content: center;
+      font-size: 30px;
+      color: var(--color);
+      padding-left: 10px;
+      width: 25vw;
+    }
+    
+    .instructions span {
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      font-size: medium;
+      color: var(--color)
+    }
+
+  @keyframes stack {
     0% {
-       clip: rect(61px, 9999px, 52px, 0);
-    }
- 
-    5% {
-       clip: rect(33px, 9999px, 144px, 0);
-    }
- 
-    10% {
-       clip: rect(121px, 9999px, 115px, 0);
-    }
- 
-    15% {
-       clip: rect(144px, 9999px, 162px, 0);
-    }
- 
-    20% {
-       clip: rect(62px, 9999px, 180px, 0);
-    }
- 
-    25% {
-       clip: rect(34px, 9999px, 42px, 0);
-    }
- 
-    30% {
-       clip: rect(147px, 9999px, 179px, 0);
-    }
- 
-    35% {
-       clip: rect(99px, 9999px, 63px, 0);
-    }
- 
-    40% {
-       clip: rect(188px, 9999px, 122px, 0);
-    }
- 
-    45% {
-       clip: rect(154px, 9999px, 14px, 0);
-    }
- 
-    50% {
-       clip: rect(63px, 9999px, 37px, 0);
-    }
- 
-    55% {
-       clip: rect(161px, 9999px, 147px, 0);
-    }
- 
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    };
     60% {
-       clip: rect(109px, 9999px, 175px, 0);
+      opacity: 0.5;
+      transform: translateX(50%);
     }
- 
-    65% {
-       clip: rect(157px, 9999px, 88px, 0);
-    }
- 
-    70% {
-       clip: rect(173px, 9999px, 131px, 0);
-    }
- 
-    75% {
-       clip: rect(62px, 9999px, 70px, 0);
-    }
- 
     80% {
-       clip: rect(24px, 9999px, 153px, 0);
+      transform: none;
+      opacity: 1;
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
     }
- 
-    85% {
-       clip: rect(138px, 9999px, 40px, 0);
-    }
- 
-    90% {
-       clip: rect(79px, 9999px, 136px, 0);
-    }
- 
-    95% {
-       clip: rect(25px, 9999px, 34px, 0);
-    }
- 
     100% {
-       clip: rect(173px, 9999px, 166px, 0);
+      text-shadow: none;
     }
- }
- 
- @keyframes noise-after {
+  }
+  
+  @keyframes glitch {
     0% {
-       clip: rect(26px, 9999px, 33px, 0);
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+      transform: translate(var(--glitch-translate));
     }
- 
-    5% {
-       clip: rect(140px, 9999px, 198px, 0);
+    2% {
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
     }
- 
-    10% {
-       clip: rect(184px, 9999px, 89px, 0);
+    4%, 100% {  text-shadow: none; transform: none; }
+  }
+
+  /* Responsive media */ 
+
+  @media (max-width: 768px) {
+    /* CSS rules for tablet devices */
+    /* For example: */
+    .container {
+        font-size: 1.5rem;
+        margin-top: 5%;
     }
- 
-    15% {
-       clip: rect(121px, 9999px, 6px, 0);
+    
+    .about-header img{
+        width: 180px;
+        height: 160px;
     }
- 
-    20% {
-       clip: rect(181px, 9999px, 99px, 0);
+
+    .skills {
+        flex-direction: column;
+        margin: 5%;
     }
- 
-    25% {
-       clip: rect(154px, 9999px, 133px, 0);
+}
+
+@media (max-width: 480px) {
+    /* CSS rules for smartphone devices */
+    /* For example: */
+    .container {
+        font-size: 1.2rem;
+        margin-top: 2%;
     }
- 
-    30% {
-       clip: rect(134px, 9999px, 169px, 0);
+
+    .about-header img{
+        width: 140px;
+        height: 120px;
     }
- 
-    35% {
-       clip: rect(26px, 9999px, 187px, 0);
+
+    .skills {
+        flex-direction: column;
+        margin: 3%;
     }
- 
-    40% {
-       clip: rect(147px, 9999px, 137px, 0);
-    }
- 
-    45% {
-       clip: rect(31px, 9999px, 52px, 0);
-    }
- 
-    50% {
-       clip: rect(191px, 9999px, 109px, 0);
-    }
- 
-    55% {
-       clip: rect(74px, 9999px, 54px, 0);
-    }
- 
-    60% {
-       clip: rect(145px, 9999px, 75px, 0);
-    }
- 
-    65% {
-       clip: rect(153px, 9999px, 198px, 0);
-    }
- 
-    70% {
-       clip: rect(99px, 9999px, 136px, 0);
-    }
- 
-    75% {
-       clip: rect(118px, 9999px, 192px, 0);
-    }
- 
-    80% {
-       clip: rect(1px, 9999px, 83px, 0);
-    }
- 
-    85% {
-       clip: rect(145px, 9999px, 98px, 0);
-    }
- 
-    90% {
-       clip: rect(121px, 9999px, 154px, 0);
-    }
- 
-    95% {
-       clip: rect(156px, 9999px, 44px, 0);
-    }
- 
-    100% {
-       clip: rect(67px, 9999px, 122px, 0);
-    }
- }
- 
- @keyframes shift {
-    0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
-       transform: skewX(0deg);
-    }
- 
-    41% {
-       transform: skewX(10deg);
-    }
- 
-    42% {
-       transform: skewX(-10deg);
-    }
- 
-    59% {
-       transform: skewX(40deg) skewY(10deg);
-    }
- 
-    60% {
-       transform: skewX(-40deg) skewY(-10deg);
-    }
- 
-    63% {
-       transform: skewX(10deg) skewY(-5deg);
-    }
- 
-    70% {
-       transform: skewX(-50deg) skewY(-20deg);
-    }
- 
-    71% {
-       transform: skewX(10deg) skewY(-10deg);
-    }
- }
+}
